@@ -1,5 +1,7 @@
 #!/bin/sh
 
+az acr login --name devopsexampletestcontainerregistry
+
 docker tag book devopsexampletestcontainerregistry.azurecr.io/book:latest
 docker tag book devopsexampletestcontainerregistry.azurecr.io/book:1.0.0-SNAPSHOT
 
