@@ -11,22 +11,22 @@
 
 
 spring:
-    application:
-        name: springboot-rest-demo
-    jpa:
-        generate-ddl: true
-        hibernate:
-            ddl-auto: update
+  application:
+    name: springboot-rest-demo
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
 
-# mangagement endpoint configuration 
+# mangagement endpoint configuration
 management:
-    endpoints:
-        web:
-            base-path: /monitoring
-            exposure.include: info, health # autorized web endpoints list
-    endpoint:
-        health:
-            show-details: always
+  endpoints:
+    web:
+      base-path: /monitoring
+      exposure.include: info, health # autorized web endpoints list
+  endpoint:
+    health:
+      show-details: always
 
 # ===================================================================
 # Application specific configuration.

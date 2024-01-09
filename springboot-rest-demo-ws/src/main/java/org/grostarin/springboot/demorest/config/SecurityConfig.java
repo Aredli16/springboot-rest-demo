@@ -11,16 +11,16 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(securedEnabled = true)
-public class SecurityConfig {	
-
-    @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http
-        .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-        .and().csrf().disable()
-        .authorizeRequests().antMatchers("/**/login").permitAll()
-        .and().authorizeRequests().antMatchers("/monitoring/**").permitAll()
-        .and().authorizeRequests().antMatchers("/api/**").permitAll();
-        return http.build();
-    }
+public class SecurityConfig {
+	
+	@Bean
+	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+		http
+				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+				.and().csrf().disable()
+				.authorizeRequests().antMatchers("/**/login").permitAll()
+				.and().authorizeRequests().antMatchers("/monitoring/**").permitAll()
+				.and().authorizeRequests().antMatchers("/api/**").permitAll();
+		return http.build();
+	}
 }

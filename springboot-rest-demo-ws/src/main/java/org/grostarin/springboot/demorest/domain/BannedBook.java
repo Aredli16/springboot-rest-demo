@@ -13,6 +13,15 @@ public class BannedBook {
 	private String title;
 	private String author;
 	
+	public BannedBook(String title, String author) {
+		this.title = title;
+		this.author = author;
+	}
+	
+	public BannedBook() {
+	
+	}
+	
 	public Long getId() {
 		return id;
 	}

@@ -15,28 +15,28 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 @ControllerAdvice
 public class RestExceptionHandler extends ResponseEntityExceptionHandler {
-
-    public RestExceptionHandler() {
-        super();
-    }
-
-    @ExceptionHandler(BookNotFoundException.class)
-    protected ResponseEntity<Object> handleNotFound(Exception ex, WebRequest request) {
-        return handleExceptionInternal(ex, "Book not found", new HttpHeaders(), HttpStatus.NOT_FOUND, request);
-    }
-    
-    @ExceptionHandler(BannedBookException.class)
-    protected ResponseEntity<Object> handleBanned(Exception ex, WebRequest request) {
-        return handleExceptionInternal(ex, "Book is banned", new HttpHeaders(), HttpStatus.FORBIDDEN, request);
-    }
-
-    @ExceptionHandler({
-      BookIdMismatchException.class,
-      ConstraintViolationException.class,
-      DataIntegrityViolationException.class
-    })
-    public ResponseEntity<Object> handleBadRequest(Exception ex, WebRequest request) {
-        return handleExceptionInternal(ex, ex
-          .getLocalizedMessage(), new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
-    }
+	
+	public RestExceptionHandler() {
+		super();
+	}
+	
+	@ExceptionHandler(BookNotFoundException.class)
+	protected ResponseEntity<Object> handleNotFound(Exception ex, WebRequest request) {
+		return handleExceptionInternal(ex, "Book not found", new HttpHeaders(), HttpStatus.NOT_FOUND, request);
+	}
+	
+	@ExceptionHandler(BannedBookException.class)
+	protected ResponseEntity<Object> handleBanned(Exception ex, WebRequest request) {
+		return handleExceptionInternal(ex, "Book is banned", new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
+	}
+	
+	@ExceptionHandler({
+			BookIdMismatchException.class,
+			ConstraintViolationException.class,
+			DataIntegrityViolationException.class
+	})
+	public ResponseEntity<Object> handleBadRequest(Exception ex, WebRequest request) {
+		return handleExceptionInternal(ex, ex
+				.getLocalizedMessage(), new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
+	}
 }
